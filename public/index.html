@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="نقل ملفات مباشر بين جهازين عبر QR" />
+    <title>قريب — نقل ملفات مباشر</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header><a class="brand" href="/"><span>ق</span> قريب</a><p>نقل مباشر، بلا حسابات ولا تخزين للملفات</p></header>
+      <section class="hero"><p class="eyebrow">مشاركة آمنة بين جهازين</p><h1>انقل ملفاتك إلى جهاز قريب منك</h1><p>امسح رمز QR، اربط الجهازين، وأرسل الملف مباشرة عبر اتصال مشفّر بين المتصفحين.</p></section>
+      <section id="startView" class="card start-card">
+        <div class="option"><div class="option-icon">↑</div><h2>أرسل ملفًا</h2><p>أنشئ جلسة جديدة من هذا الجهاز، ثم اربط الجهاز الآخر.</p><button id="createRoom" class="primary">إنشاء جلسة</button></div>
+        <div class="divider"></div>
+        <div class="option"><div class="option-icon">↓</div><h2>استقبل ملفًا</h2><p>امسح QR من الجهاز المُرسل، أو أدخل رمز الجلسة.</p><div class="join-row"><input id="roomCode" maxlength="8" placeholder="رمز الجلسة" /><button id="joinRoom" class="secondary">ربط</button></div></div>
+      </section>
+      <section id="pairView" class="card hidden">
+        <p class="step">1 من 2 — اربط الجهاز الآخر</p><h2>امسح الرمز من الجهاز الآخر</h2><p class="muted">ستُنشأ وصلة مؤقتة وآمنة بين الجهازين فقط.</p><canvas id="qrCanvas"></canvas><div class="share-link"><input id="shareLink" readonly /><button id="copyLink" class="secondary">نسخ الرابط</button></div><p id="status" class="status">بانتظار اتصال الجهاز الآخر…</p>
+      </section>
+      <section id="transferView" class="card hidden">
+        <p class="step">2 من 2 — نقل مباشر</p><h2 id="transferTitle">تم ربط الجهازين بنجاح</h2><p id="transferDescription" class="muted">اختر الملف الذي تريد إرساله.</p>
+        <label id="fileDrop" class="drop-zone"><input id="fileInput" type="file" /><strong>اختر ملفًا أو اسحبه هنا</strong><span>سيُرسل مباشرة إلى الجهاز الآخر</span></label>
+        <div id="progressBox" class="progress-box hidden"><div class="progress-head"><strong id="fileName">—</strong><span id="progressText">0%</span></div><div class="progress-track"><div id="progressBar"></div></div><p id="transferStatus">جارٍ تجهيز الملف…</p></div>
+        <a id="downloadLink" class="download hidden" download>تنزيل الملف</a>
+      </section>
+      <section class="privacy"><span>✓</span><div><strong>الملفات لا تمر عبر خادم قريب</strong><p>الخادم ينسّق الربط فقط؛ وبعد الاتصال ينتقل الملف مباشرة بين الجهازين.</p></div></section>
+    </main>
+    <footer>قريب — مشروع مفتوح المصدر مبني بـ WebRTC.</footer>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
