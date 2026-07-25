@@ -1,0 +1,14 @@
+{
+  "name": "qareeb-transfer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "نقل ملفات مباشر وآمن بين جهازين عبر QR وWebRTC.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
